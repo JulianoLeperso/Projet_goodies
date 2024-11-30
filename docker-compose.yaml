@@ -1,0 +1,29 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_NAME=counter_db
+      - DB_USER=counter_user
+      - DB_PASSWORD=counter_password
+      - DB_PORT=5432
+
+  db:
+    image: postgres:13
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: counter_db
+      POSTGRES_USER: counter_user
+      POSTGRES_PASSWORD: counter_password
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:
