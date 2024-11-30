@@ -1,7 +1,7 @@
 
 # Guide d’Installation et de Déploiement
 
-## Introduction
+## Introduction du Projet de GASNET Clément et BOULET Paul
 Ce projet consiste à déployer une application web basée sur Django connectée à une base de données PostgreSQL dans un environnement conteneurisé avec Docker et orchestré avec Kubernetes. Le guide couvre les étapes nécessaires pour construire les conteneurs, configurer les fichiers YAML pour Kubernetes, et effectuer le déploiement.
 
 ---
