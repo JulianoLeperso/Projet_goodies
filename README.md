@@ -63,13 +63,38 @@ Ce projet consiste à déployer une application web basée sur Django connectée
    ```
 2. Accédez à l'application via `http://localhost:8000`.
 
+### 3. Création et Gestion de Minikube
+1. **Démarrez Minikube** :
+   Si Minikube n'est pas déjà démarré, lancez-le avec :
+   ```bash
+   minikube start
+   ```
 
-### 3. Création des Pods et Services Kubernetes
-1. Déployez le pod PostgreSQL et le volume persistant :
+2. **Vérifiez l'état de Minikube** :
+   Assurez-vous que Minikube fonctionne correctement :
+   ```bash
+   minikube status
+   ```
+
+3. **Configurez `kubectl` pour utiliser Minikube** :
+   Si ce n'est pas déjà configuré, connectez `kubectl` à Minikube :
+   ```bash
+   kubectl config use-context minikube
+   ```
+
+4. **Déployez les ressources Kubernetes** :
+   Une fois que Minikube est prêt, appliquez tous les fichiers YAML du dossier `k8s` :
    ```bash
    kubectl apply -f ./k8s/
    ```
 
+5. **Accédez à l'application** :
+   Utilisez Minikube pour obtenir l'URL de l'application :
+   ```bash
+   minikube service django-service
+   ```
+
+---
 
 ### 5. Validation du Déploiement
 1. Vérifiez que les pods sont en cours d’exécution :
@@ -81,12 +106,8 @@ Ce projet consiste à déployer une application web basée sur Django connectée
    kubectl get services
    ```
 3. Accédez à l'application via l'URL ou l'adresse IP exposée.
-   ```bash
-   minikube service django-service
-   ```
 
 ---
-
 
 ### Modifications pour d’autres Environnements
 - **Base de données** : Si vous utilisez une autre base de données (ex. MySQL), modifiez `ENGINE` et les paramètres connexes dans `settings.py`.
