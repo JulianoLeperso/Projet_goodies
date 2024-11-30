@@ -107,13 +107,7 @@ Ce projet consiste à déployer une application web basée sur Django connectée
    ```
 3. Accédez à l'application via l'URL ou l'adresse IP exposée.
 
----
 
-### Modifications pour d’autres Environnements
-- **Base de données** : Si vous utilisez une autre base de données (ex. MySQL), modifiez `ENGINE` et les paramètres connexes dans `settings.py`.
-- **Kubernetes** : Adaptez les fichiers YAML pour refléter les besoins de votre environnement (ressources, noms, etc.).
-
----
 
 ## Conclusion
 Ce guide fournit les étapes clés pour déployer une application Django conteneurisée avec Kubernetes. En suivant ces instructions, vous pouvez personnaliser et adapter le déploiement à vos besoins. Pour toute question ou problème, consultez la documentation officielle de [Django](https://docs.djangoproject.com/) et [Kubernetes](https://kubernetes.io/).
