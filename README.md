@@ -15,13 +15,13 @@ Ce projet consiste à déployer une application web basée sur Django connectée
 - **`requirements.txt`** : Dépendances Python nécessaires pour l'application.
 - **`README.md`** : Documentation du projet.
 
-### Dossier `counter_app`
+### Dossier `compteur_app`
 - **Code Django** : Contient les fichiers comme `models.py`, `views.py`, `urls.py`.
 - **`migrations/`** : Gère les modifications de la structure de la base de données.
 - **`static/`** : Fichiers CSS.
 - **`templates/`** : Fichiers HTML, par exemple `counter.html`.
 
-### Dossier `counter_project`
+### Dossier `compteur_project`
 - **Fichiers de configuration de projet Django** :
   - `settings.py` : Configuration principale, incluant la connexion à la base de données.
   - `urls.py` : Routes de l'application.
@@ -63,25 +63,13 @@ Ce projet consiste à déployer une application web basée sur Django connectée
    ```
 2. Accédez à l'application via `http://localhost:8000`.
 
-### 3. Configuration des Secrets et ConfigMaps (Kubernetes)
-1. Appliquez les secrets pour la base de données :
-   ```bash
-   kubectl apply -f k8s/db-secret.yaml
-   ```
-2. Appliquez les ConfigMaps pour la configuration de l’application (si nécessaire).
 
-### 4. Création des Pods et Services Kubernetes
+### 3. Création des Pods et Services Kubernetes
 1. Déployez le pod PostgreSQL et le volume persistant :
    ```bash
-   kubectl apply -f k8s/postgres-pvc.yaml
-   kubectl apply -f k8s/deployment-db.yaml
-   kubectl apply -f k8s/service-db.yaml
+   kubectl apply -f ./k8s/
    ```
-2. Déployez le pod Django :
-   ```bash
-   kubectl apply -f k8s/deployment-django.yaml
-   kubectl apply -f k8s/service-web.yaml
-   ```
+
 
 ### 5. Validation du Déploiement
 1. Vérifiez que les pods sont en cours d’exécution :
@@ -93,6 +81,9 @@ Ce projet consiste à déployer une application web basée sur Django connectée
    kubectl get services
    ```
 3. Accédez à l'application via l'URL ou l'adresse IP exposée.
+   ```bash
+   minikube service django-service
+   ```
 
 ---
 
